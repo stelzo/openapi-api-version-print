@@ -1,0 +1,33 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Self test remote
+        id: selftest-remote
+
+        uses: stelzo/openapi-api-version-print
+        with:
+          specFile: https://raw.githubusercontent.com/dofusdude/api-docs/main/openapi-3.0.yaml
+
+      - name: Check outputs
+        run: |
+          test "${{ steps.selftest-remote.outputs.apiVersion }}" != ""
+
+      - name: Self test local
+        run: |
+          wget https://raw.githubusercontent.com/dofusdude/api-docs/main/openapi-3.0.yaml
+
+      - name: Prepare self test local
+        id: selftest-local
+
+        uses: stelzo/openapi-api-version-print
+        with:
+          specFile: openapi-3.0.yaml
+
+      - name: Self test local
+        run: |
+          test "${{ steps.selftest-local.outputs.apiVersion }}" != ""
+          test "${{ steps.selftest-local.outputs.apiVersion }}" == "${{ steps.selftest-remote.outputs.apiVersion }}"

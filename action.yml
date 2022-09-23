@@ -1,0 +1,13 @@
+name: "OpenAPI API Version Print"
+description: "Gets the API version in the OpenAPI Spec file and outputs it to use within other actions."
+author: "Christopher Sieh"
+inputs:
+  specFile:
+    description: "Path to the OpenAPI Specification file (local or URI). If not given, it looks up openapi.yaml, openapi.yml and openapi.json in the current directory."
+    required: false
+outputs:
+  apiVersion:
+    description: "The API version in the OpenAPI Specification file."
+runs:
+  using: "docker"
+  image: "Dockerfile"
