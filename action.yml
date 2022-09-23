@@ -1,5 +1,7 @@
 name: "OpenAPI API Version Print"
 description: "Gets the API version in the OpenAPI Spec file and outputs it to use within other actions."
+icon: book-open
+color: purple
 author: "Christopher Sieh"
 inputs:
   specFile:
