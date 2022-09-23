@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: Get API Version
       
-      uses: stelzo/openapi-api-version-print@main
+      uses: stelzo/openapi-api-version-print@v1
       with:
         specFile: swagger.json
 ```
@@ -37,14 +37,14 @@ jobs:
 
 ```yaml
 steps:
-- uses: actions/checkout@master
+- uses: actions/checkout@v3
 - name: Get API Version from local file
   
   # id is used to reference the output
   id: api-version-print
 
   # Run the action
-  uses: stelzo/openapi-api-version-print@main
+  uses: stelzo/openapi-api-version-print@v1
   with:
     specFile: swagger.json
 
@@ -57,7 +57,7 @@ steps:
 ### Remote
 
 ```yaml
-  uses: stelzo/openapi-api-version-print@main
+  uses: stelzo/openapi-api-version-print@v1
   with:
     specFile: https://raw.githubusercontent.com/dofusdude/api-docs/main/openapi-3.0.yaml
 ```

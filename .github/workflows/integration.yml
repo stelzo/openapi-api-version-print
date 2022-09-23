@@ -8,7 +8,7 @@ jobs:
       - name: Self test remote
         id: selftest-remote
 
-        uses: stelzo/openapi-api-version-print
+        uses: stelzo/openapi-api-version-print@main
         with:
           specFile: https://raw.githubusercontent.com/dofusdude/api-docs/main/openapi-3.0.yaml
 
@@ -23,7 +23,7 @@ jobs:
       - name: Prepare self test local
         id: selftest-local
 
-        uses: stelzo/openapi-api-version-print
+        uses: stelzo/openapi-api-version-print@main
         with:
           specFile: openapi-3.0.yaml
 
