@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Get API Version
       
-      uses: stelzo/openapi-api-version-print@master
+      uses: stelzo/openapi-api-version-print@main
       with:
         specFile: swagger.json
 ```
